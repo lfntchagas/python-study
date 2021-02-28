@@ -1,0 +1,591 @@
+print('How old are you')
+age = input()
+age = int(age)
+print('in 5 years you will have ' + str(age + 5) + ' years old')
+#age = int(spam)
+#print('In 5 years you will have' age + 5)
+
+
+print('How old are you')
+age = input()
+age = int(age)
+#print('in 5 years you will have ' + str(age + 5) + ' years old')
+if age > 30 and age < 39:
+   print('You are becoming old')
+elif age > 40 and age < 50:
+   print ("you're over 40")
+else:
+   print('Your age is: ' + str(age))
+
+
+1 -
+print('What is your name?')
+name = input()
+if name == 'Felipe':
+    print('Hello' + name)
+elif name == 'jose':
+    print('Hello ' + name)
+elif name == 'ze':
+    print('hello ' + name + '!'*3)
+else:
+    print('we dont know you,' + name)
+    
+	
+2 - 
+print('What is your name?')
+name = input()
+if name == 'Felipe':
+    print('Hello' + name)
+elif name == 'jose':
+    print('Hello ' + name)
+elif name == 'ze':
+    print('hello ' + name + '!'*3)
+
+	
+3- 
+name = 'Bob'
+age = 30
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age < 12:
+    print('You are not Alice, kiddo.')
+else:
+    print('You are neither Alice nor a little kid.')
+	
+	
+4 - 
+print('Enter a name')
+name = input()
+if name:       #the blank string is a false value condition evaluates to the blank string. All others are truthy.
+if name != '': # '' means empty string.
+    print('Thanks you for entering a name')
+else:
+    print('you didnt enter a name')
+
+OR
+
+print('Enter a name')
+name = input()
+if name != '':
+    print('Thanks you for entering a name')
+else:
+    print('you didnt enter a name')
+	
+5 - 
+spam = 0
+while spam < 5:
+    print('Hello, world.')
+    spam = spam + 1
+
+6 - 
+name = ''                       
+while name != 'Your name':        
+    print('Please type your name.')
+    name = input()              
+print('Thank you! ' + name)       
+
+
+7 - 
+while True:                         # (1)
+    print('Please type your name.')
+    name = input()                  # (2)
+    if name == 'your name':         # (3)
+        break                       # (4)
+print('Thank you!')                 # (5)
+	
+	
+8 -
+while True:
+  print('Who are you?')
+  name = input()
+  if name != 'Joe':       #(1) If name is different than Joe, then back to the conditional (while)
+    continue              #(2) -> Jumps back to the start of the loop and reevaluates the loop's condition.
+  print('Hello, Joe. What is the password? (It is a fish.)') 
+  password = input()      #(3)
+  if password == 'swordfish':
+    break                 #(4) if break is not here, the next step is back to the statement while.
+print('Access granted.')  #(5)
+
+
+9 - 
+name = '' # empty strings are considered False. 
+while name != '': #(1) While the variable name is 0 the statement will be true and the while statement will run again prompting you for a name. '' is a false value.
+    print('Enter your name:')
+    name = input()
+print('How many guests will you have?')
+numOfGuests = int(input()) 
+if numOfGuests != 0: #(2) # if you type 0, the conditional If will consider this condition as False and then will not execute the If statement.
+    print('Be sure to have enough room for all your guests.') #(3)
+print('Done')
+
+
+spam = 0
+
+print('type 1 or 2')
+spam = int(input())
+if spam == 1:
+    print('hello')
+elif spam == 2:
+    print('Howdy')
+else:
+    print('Greeting' + str(spam))
+
+
+11 - Return statement example
+
+import random
+def getAnswer(answerNumber):
+    if answerNumber == 1: # the value of r is stored in a parameter named answerNumber.
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so' # return statement
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+        return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+r = random.randint(1, 9) # the random.randit function is called and the value is stored in a variable named r.
+fortune = getAnswer(r) # the getAnswer() function is called with r as the argument. The program execution moves to the top of the the getAnswe() function, and the value r is stored in a parameter named answerNumber. The returned string is assigned to a variable named fortune, which then gets passed to a print() call and is printed to the screen.
+print(fortune)
+
+# or
+print(getAnswer(random.randint(1, 9))) # Since you can pass return values as an argument to another function call, you could shorten these three lines.
+	
+	
+12 - # This is a guess the number game.
+import random
+secretNumber = random.randint(1, 20)
+print('I am thinking of a number between 1 and 20.')
+
+# Ask the player to guess 6 times.
+for guessesTaken in range(-6, -1): # the for loop repeate the code block once for each value in a list or list-like value.
+    print('Take a guess. You have ' + str(guessesTaken) + ' guess left')
+    try:
+        guess = int(input())
+    except ValueError:
+        print('Type inter numbers MF!')
+        continue
+
+    if guess < secretNumber:
+        print('Your guess is too low.')
+    elif guess > secretNumber:
+        print('Your guess is too high.')
+    else:
+        break    # This condition is the correct guess!
+
+if guess == secretNumber:
+    print('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
+else:
+    print('You failed in 6x time. The number I was thinking of was ' + str(secretNumber))
+	
+13 - Global scope
+def spam():
+    global eggs # this statement assign the value of the variable eggs to global.
+    eggs = 'hello'
+    print(eggs)
+
+eggs = 42 # this value will be ignore because of the statement inside of the function.
+spam()
+print(eggs)
+	
+13 - Collatz_Sequence Python chapter 3.
+def collatz(number):
+   if number % 2 == 0:
+      return print('even'+ str(number // 2))
+
+   elif number % 2 == 1:
+      return print('odd' + str(3 * number + 1))
+
+while True:
+   print('type a number')
+   try:
+        tipo = int(input())
+   except ValueError:
+        print('Type inter numbers MF!')
+   collatz(tipo)
+   
+14 - 
+def script():
+    catNames = []
+    while True:
+        print('Enter the name of cat ' + str(len(catNames) + 1) +
+        ' (Or enter nothing to stop.):')
+        name = input()
+        if name == '':
+            break
+        catNames = catNames + [name] # list concatenation
+    print('The cat names are:')
+    for name in catNames:
+        print('  ' + name)
+
+script()
+
+15 - Technique to use range(len(somelist))
+
+lista = ['amora', 'feijao', 'fruta', 'cigarro']
+
+lista = ['amora', 'feijao', 'fruta', 'cigarro']
+for i in range(len(lista)):
+   print('os items da lista sao: ' + 'index: ' + str(i) +' ' + lista[i])
+
+# str(i) - return the index position
+# lista[i] - Access the index (as the variable i) and the value at that indexes as lista[i]
+
+16 - 
+mypet = ['Zoo', 'pook', 'fly']
+print('Enter a pet name:')
+name = input()
+if name in mypet:
+   print('I have a pet named: ' + name)
+else:
+   print("I don't have a pet named: " + name)
+   
+#or
+
+mypet = ['Zoo', 'pook', 'fly']
+print('Enter a pet name:')
+name = input()
+if name not in mypet:
+   print('I do not have a pet named: ' + name)
+else:
+   print("I have a pet named: " + name)
+   
+17 - Magic ball v2
+import random
+
+messages = ['It is certain',
+'It is decidedly so',
+'Yes definitely',
+ 'Reply hazy try again',
+'Ask again later',
+'Concentrate and ask again',
+
+ 'My reply is no',
+'Outlook not so good',
+'Very doubtful']
+
+print(messages[random.randint(0, len(messages) - 1)])
+ #1 - Produces a random number to use for index, regardless of the size of messages. 
+ #2 - You will get a random number between 0 and the value of len(messages) -1.
+
+
+
+18 - 
+supplies = ['pens', 'stapples', 'flame-throwers', 'binders']
+for in in range(len(supplies)): # give the numer of the items inside of the list supplies to range. 
+	print('index' + str(i) + 'in supplies is' + supplies[i])
+
+	
+19 - 
+def eggs(cheese):
+	cheese.append('Hello')
+
+spam = [1, 2, 3]
+eggs(spam)
+print(spam)
+
+
+20 - 
+birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'} # Created a new dictionary and store it in birthdays
+while True:
+    print('What is your name?')
+    name = input()
+    if name == '':
+        break
+    if name in birthdays: # If the name is in dictionary, you access the associated value using square brackets birthdays[name]
+        print('Hi ' + name + ' your birthday is on: ' + birthdays[name])
+    else: # If not, you can add it using the same square brackets syntax combined with the assignment operator 
+        print('I dont have your birthday information for ' + name)
+        print('whats your birthday?')
+        bday = input()
+        birthdays[name] = bday # Assigned the value for the key name you typed + the day of the birthday
+        print('Birthday database updated')
+
+21 - Converting dictionary to list:
+eggs = {'name': 'Zophie', 'species': 'cat', 'age': 8}
+test = list(eggs.keys()) # get only the keys and convertin the keys in list.
+test = list(eggs.values()) # get only the values and converting the values in list.
+
+Dumb way to do:
+#lista = []
+x = ''
+eggs = {'name': 'Zophie', 'species': 'cat', 'age': 8}
+for k in eggs.keys():
+    x = x + ' ' + k
+lista = x.split()
+print(lista)
+print(lista[0])
+
+
+22 - 
+
+if option == 1:
+        print('What is the hostname?\n')
+        host = input() # Receive the name of the host
+        with open('file.txt', 'r') as file:
+            name = []
+            for i in file:
+                a = ast.literal_eval(i) # convert each line in dictionary
+                chave = list(a.keys()) # get only the keys of the file and put in a list called chave
+                name = name + chave # create a list called name with only keys inside
+
+            if host in name:
+                print('the host: ' + host + ' is already on the list')
+
+
+
+23 - 
+import ast
+
+print('What is the hostname?')
+#host = input()
+
+with open('file.txt', 'r') as file:
+    name = []
+    dic = {}
+    for i in file:
+        a = ast.literal_eval(i)
+        for k, v in a.items():
+            dic[k] = v
+print(type(dic))
+
+#print(a[host])
+
+24 - count caracters inside of the message.
+import pprint
+
+message = ' It was a bright cold day in April, and the clock'
+count = {}
+for character in message.upper():
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+#pprint.pprint(count)
+print(pprint.pformat(count))
+
+25 - Tic-tac-toe
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+
+def printBoard(board):
+       print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+       print('-+-+-')
+       print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+       print('-+-+-')
+       print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+turn = 'X'
+for i in range(9):
+    printBoard(theBoard)
+    print('Turn for ' + turn + '. Move on which space?')
+    move = input() # get the key you want assign (x or 0)
+    theBoard[move] = turn # assign a value to the key(received in move). 
+    if turn == 'X': # turn of the player.
+        turn = 'O'
+    else:
+        turn = 'X' # if the player is 0, turn to X.
+    printBoard(theBoard)
+
+26 - Nested dictionary
+
+allGuests = {'Alice': {'apples': 5, 'pretzels': 12}, 'Bob': {'ham sandwiches': 3, 'apples': 2}, 'Carol': {'cups': 3, 'apple pies': 1}}
+
+def totalBrought(guest,food):
+    numBrought = 0
+    for k, v in guest.items(): # K = Alice , v = {'apples': 5, 'pretzels': 12}
+
+        numBrought = numBrought + v.get(food,0) # If the item parameter exists as a key, it's value is added to numBrought. If it does not exist, the get()method returns 0 to be added to numBrought
+
+    return numBrought # return the value of that item.
+	
+print('Number of things being brought:')
+print(' - Apples         ' + str(totalBrought(allGuests, 'apples'))) 
+# 1 - Call the function totalBrought
+# 2 - Pass the dictionary AllGuests to the parameter: guest
+# 3 - Pass the string 'Apple' to the parameter: item
+# 4 - return the value of the total of the parameter: item
+
+print(' - Cups           ' + str(totalBrought(allGuests, 'cups')))
+print(' - Cakes          ' + str(totalBrought(allGuests, 'cakes')))
+print(' - Ham Sandwiches ' + str(totalBrought(allGuests, 'ham sandwiches')))
+print(' - Apple Pies     ' + str(totalBrought(allGuests, 'apple pies')))
+
+27 - 
+message = 'It was a bright cold day in April, and the clocks were striking thirteen'
+count = {}
+for character in message.upper(): # method upper capitalize all the letters
+    count.setdefault(character, 0) # set a key = 0 to the dictionary count = {} if that key doesn't exist.
+    count[character] = count[character] + 1 # sum + 1 to each value of the key in character.
+print(count)
+
+28 - 
+import os
+print('the current direcotyr is: ' + os.getcwd())
+baconFile = open('baco.txt', 'w')
+baconFile.write('testandooooo123')
+baconFile.close()
+
+baconFile = open('baco.txt')
+print(baconFile.read())
+baconFile.close()
+
+
+29 - 
+import shelve
+shelFile = shelve.open('mydata')
+shelFile['cat'] = ['Zophie', 'Simon', 'miau'] #save a list cat in a file called mydata in the hard disk. is a binary file
+shelFile['dog'] = ['fly', 'ozzy', 'troy']
+print(shelFile['dog'])
+print(shelFile['cat'])
+shelFile.close()
+
+30 - Delete file with extension 
+
+import os
+#os.chdir('c:\\Users\\Felipe\\') # change the current directory
+
+for filename in os.listdir(): # list the files in the directory.
+    if filename.endswith('.txt'):
+        print(filename)
+        #os.unlink(filename)
+		
+31 - 
+import os 
+for folderName, subfolders, filenames in os.walk('C:\\Users\\Felipe\\Google Drive'): # pass the root folder.
+    #print('The folder is ' + folderName)
+    #print('The subfolders  in ' + folderName + ' are: ' + str(subfolders))
+    #print('The Filenames  in ' + str(subfolders) + ' are: ' + str(filenames))
+    #print()
+    
+    for arq in filenames:
+        print(arq)
+		
+32 - 
+#! python3
+import webbrowser, sys  # the module only opens a web browser tab.
+
+# user pyperclip module into else.
+
+address = ''
+
+#sys.argv # list value ['mapit.py, '870', 'valencia', 'st.']
+
+# check if command line arguments were passed
+if len(sys.argv) > 1:
+    # ['mapit.py, '870', 'valencia', 'st.']
+    address = ' '.join(sys.argv[1:]) # Join the list values from: '870' into a string value with a single space between them.
+    print(address)
+else:
+    print('Please inform what is the address you are looking for:')
+    address = input()
+
+webbrowser.open('https://www.google.com/maps/place/' + address)
+
+33 -
+import bs4, requests
+
+def getAmazonPrice(productUrl):
+    res = requests.get(productUrl)
+    res.raise_for_status()
+
+    soup = bs4.BeautifulSoup(res.text, 'html.parser')
+    elems = soup.select('#product-page > div > section > section.product-details.js-product-details > span.product-details-price.undefined > span > span.product-details__price--value.price-sale')
+    return elems[0].text.strip() #
+
+price = getAmazonPrice('https://www.mrporter.com/en-gb/mens/product/castaner/pablo-canvas-espadrilles/561669')
+print('The price is ' + price)
+
+34 - check tube status
+import bs4, requests
+
+def getTubecheck(tubeline):
+    res = requests.get(tubeline) # download the main page from tfl.gov.uk
+    res.raise_for_status() # check if the download runs correct
+
+    soup = bs4.BeautifulSoup(res.text, 'html.parser') # parses HTML, the format that web pages are written in.
+    elems = soup.select('#line-lul-northern-heading > span.disruption-summary > span')
+    return elems[0].text
+
+picadillyStatus = getTubecheck('https://tfl.gov.uk/tube-dlr-overground/status/')
+print('status the picadilly line is: ' + picadillyStatus)
+
+
+35 - 
+https://github.com/Gainutdinov/learning-flask/tree/master/REST%20API%20using%20flask
+from flask import Flask, jsonify, request
+
+
+app = Flask(__name__)
+
+books = [
+    {  
+        'name': 'Green Eggs and Ham',
+        'price': 7.99,
+        'isbn': 878039400165
+    },
+    {
+        'name': ' The Cat in The Hat', 
+        'price': 6.99,
+        'isbn': 873459400193
+    }
+
+]
+
+@app.route('/books', methods=['GET'])
+def get_books():
+    return jsonify({'books': books})
+
+
+@app.route('/books', methods=['POST'])
+def add_book():
+    return jsonify(request.get_json())
+
+
+@app.route('/books/<int:isbn>')
+def get_book_by_isbn(isbn): # the isbn will passed to this function as parameter.
+    return_value = {}
+    for book in books:
+        if book['isbn'] == isbn:# if they value of the key is equal the value of the parameter isbn, than get the name and price for that dictionary
+            return_value = {
+                'name': book["name"],
+                'price': book['price']
+            }
+    return jsonify(return_value)
+
+
+
+app.run(port=5000)
+
+36 -  slice 
+players_slice = []
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+
+print("Here are the 3 first names from the game")
+for player in players[:3]:
+    print(player)
+	
+37 - Copy lists 
+my_foods = ['pizza', 'falafel', 'carrot cake']
+
+#friend_foods = my_foods # This syntax actually tells python to associate the new variable friend_foods with the list that is already associated with my_foods, so now both variables point to the same list.
+friend_foods = my_foods[:]
+
+my_foods.append('cannoli')
+
+print("my favorite foods are:")
+friend_foods.append('ice cream')
+print(my_foods)
+
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
