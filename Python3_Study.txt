@@ -2016,5 +2016,6 @@ git checkout main
 delete any config before to update the checkout main
 git stash
 
+git rm -r --cached .idea # Delete file/folder only from github
 
 836505057
